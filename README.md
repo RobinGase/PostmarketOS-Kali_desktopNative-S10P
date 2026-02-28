@@ -54,3 +54,13 @@ This repository is the short-term execution track for WS-J goals: safe, evidence
 ## Evidence Contract
 - Evidence JSON and pipeline bundle JSON include `schema_version` and `tool_version`.
 - Usage failures emit minimal FAIL evidence JSON with `failure_stage=usage` and preserve exit code semantics (`2/3/4/5`).
+
+## What Is Still Missing Before Real Phone Flash
+- A production image bundle for `SM-G975F`/`beyond2lte` Exynos (not fixture files), with manifest metadata and verified hashes.
+- Finalized flash procedure for the real device lane (exact Heimdall/Odin command sequence, partition targets, and expected outputs).
+- Verified bootloader/download-mode readiness on each test phone (OEM unlock state, unlock confirmation, USB transport stability).
+- AVB/vbmeta and rollback plan evidence tied to the exact image build and device serials that will be flashed.
+- Full backup + restore rehearsal evidence on representative hardware before first controlled flash attempt.
+- A signed operator checklist/runbook for go/no-go execution (human approval token, owner, timestamp, rollback owner).
+
+Current repository status: this repo provides fail-closed preflight and evidence discipline only; it does not yet execute hardware flash commands.
