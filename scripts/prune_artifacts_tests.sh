@@ -61,6 +61,18 @@ assert_file_present() {
   fi
 }
 
+assert_path_present() {
+  name="$1"
+  path="$2"
+  if [ -e "$path" ]; then
+    printf 'PASS: %s\n' "$name"
+    pass_count=$((pass_count + 1))
+  else
+    printf 'FAIL: %s (missing=%s)\n' "$name" "$path"
+    fail_count=$((fail_count + 1))
+  fi
+}
+
 assert_file_missing() {
   name="$1"
   file="$2"
@@ -106,7 +118,7 @@ assert_file_missing 'real run removed old2' "$art_dir/old2.bin"
 assert_file_missing 'real run removed old3' "$art_dir/old3.bin"
 assert_file_missing 'real run removed old run dir' "$art_dir/runs/run_old"
 assert_file_present 'real run preserved new1 by age' "$art_dir/new1.bin"
-assert_file_present 'real run preserved new run dir by age' "$art_dir/runs/run_new"
+assert_path_present 'real run preserved new run dir by age' "$art_dir/runs/run_new"
 assert_file_present 'real run preserved .gitkeep' "$art_dir/.gitkeep"
 
 printf 'RESULT: pass=%s fail=%s\n' "$pass_count" "$fail_count"
