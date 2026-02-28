@@ -64,3 +64,9 @@ This repository is the short-term execution track for WS-J goals: safe, evidence
 - A signed operator checklist/runbook for go/no-go execution (human approval token, owner, timestamp, rollback owner).
 
 Current repository status: this repo provides fail-closed preflight and evidence discipline only; it does not yet execute hardware flash commands.
+
+## Fedora Handoff Paths
+- Candidate archive copied for office use: `images/kali_native_beyond2lte_20260224_143837.zip`.
+- Extracted candidate artifacts: `images/unpacked/kali_native_beyond2lte/artifacts/`.
+- Key extracted docs: `images/unpacked/kali_native_beyond2lte/docs/FLASH_STEPS.md` and `images/unpacked/kali_native_beyond2lte/docs/HANDOFF_CHECKLIST.md`.
+- These are candidate inputs only; treat them as untrusted until identity, hash, and rollback gates pass in the preflight flow.
